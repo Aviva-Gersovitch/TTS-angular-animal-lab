@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Animal } from '../animal';
 
-import { ANIMALS } from '../animal-dummydata';
+import { AnimalService } from '../animal.service';
+import { MessageService } from '../message.service';
 
 
 @Component({
@@ -11,17 +12,23 @@ import { ANIMALS } from '../animal-dummydata';
 })
 export class AnimalsComponent implements OnInit {
 
-  animals = ANIMALS;
+  animals?: Animal[];
 
   selectedAnimal?: Animal;
 
-  constructor() { }
+  constructor(private animalService: AnimalService, private messageService: MessageService) { }
+
+  getAnimals(): void {
+    this.animalService.getAnimals().subscribe(animals => this.animals = animals);
+  }
 
   ngOnInit(): void {
+    this.getAnimals();
   }
 
   onSelect(animal: Animal): void {
     this.selectedAnimal = animal;
+    this.messageService.add(`AnimalComponent: Selected animal name=${animal.name}`);
   }
 
 }

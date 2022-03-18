@@ -9,22 +9,11 @@
         Type: {{animal.animalType}} |
         Habitat: {{animal.habitat}} |
         Legs: {{animal.numLegs}} |
-        <i>Fly? {{animal.canFly}}</i>
+        <i>Can Fly? {{animal.canFly}}</i>
     </li>
 
 </ul>
 
-<!--This div only appears if selectedAnimal is declared-->
-<div *ngIf="selectedAnimal">
-    <h2>{{selectedAnimal.name}}</h2>
+<app-animal-details [animal]="selectedAnimal">
 
-<div>
-    <span> name:  </span> {{selectedAnimal.name}}
-</div>
-
-<div>
-    <label> name: 
-    <input [(ngModel)] = "selectedAnimal.name" placeholder="name" />
-</label>
-</div>
-</div>
+</app-animal-details>

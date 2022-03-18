@@ -4,15 +4,23 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AnimalsComponent } from './animals/animals.component';
+import { AnimalDetailsComponent } from './animal-details/animal-details.component';
+import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AnimalsComponent
+    AnimalsComponent,
+    AnimalDetailsComponent,
+    MessagesComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
